@@ -2,15 +2,6 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "64.92"
-   ]
-  },
-  {
-   "cell_type": "code",
    "execution_count": 19,
    "metadata": {},
    "outputs": [],
@@ -78,7 +69,9 @@
    "execution_count": null,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "64.92"
+   ]
   }
  ],
  "metadata": {
