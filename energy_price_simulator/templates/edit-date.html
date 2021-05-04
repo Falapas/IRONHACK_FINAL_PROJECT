@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<form action="/update/{{value.0}}" method="POST">
+
+    <input ="text" name="year" placeholder="Year" value="{{ value.1}}">
+    <input ="text" name="month" placeholder="Month" value="{{ value.2}}">
+    <input ="text" name="day" placeholder="Day" value="{{ value.3}}">
+    <input ="text" name="hour" placeholder="Hour" value="{{ value.4}}">
+    <button type="submit">
+        Save
+    </button>
+
+</form>
+
+{% endblock %}
