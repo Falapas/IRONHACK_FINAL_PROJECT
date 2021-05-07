@@ -1,54 +1,68 @@
-{% extends'layout.html' %}
-
+{% extends 'layout.html' %}
 {% block body %}
 
-{% with messages = get_flashed_messages() %}
-{% if messages  %}
-{% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    {{ message }}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="row">
+    <div class="col-md-3">
+        {% with messages = get_flashed_messages() %}
+        {% if messages  %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="card card-body">
+            <form action="/add_value" method="POST">
+                <div class="form-group">
+                    <input ="text" name="year" placeholder="Year" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input ="text" name="month" placeholder="Month" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input ="text" name="day" placeholder="Day" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input ="text" name="hour" placeholder="Hour" class="form-control">
+                </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Add
+                    </button>
+            </form>
+        </div>
     </div>
-{% endfor %}
-{% endif %}
-{% endwith %}
-
-<form action="/add_contact" method="POST">
-
-    <input ="text" name="year" placeholder="Year">
-    <input ="text" name="month" placeholder="Month">
-    <input ="text" name="day" placeholder="Day">
-    <input ="text" name="hour" placeholder="Hour">
-    <button type="submit">
-        Save
-    </button>
-
-</form>
-
-<table>
-    <thead>
-        <tr>
-            <td>Year</td>
-            <td>Month</td>
-            <td>Day</td>
-            <td>Hour</td>
-            <td>Operations</td>
-        </tr>
-    </thead>
-    <tbody>
-    {% for value in date %}
-        <tr>
-            <td> {{ value.1 }}</td>
-            <td> {{ value.2 }}</td>
-            <td> {{ value.3 }}</td>
-            <td> {{ value.4 }}</td>
-            <td>
-                <a href="/edit/{{ value.0 }}">Edit</a>
-                <a href="/delete/{{ value.0 }}">Delete</a>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+    <div class="col-md-5">
+        <table class="table table-striped table-bordered bg-white table-sm">
+            <thead>
+                <tr>
+                    <td>Year</td>
+                    <td>Month</td>
+                    <td>Day</td>
+                    <td>Hour</td>
+                    <td>Price</td>
+                    <td>Option</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for value in date %}
+                <tr>
+                    <td> {{ value.1 }}</td>
+                    <td> {{ value.2 }}</td>
+                    <td> {{ value.3 }}</td>
+                    <td> {{ value.4 }}</td>
+                    <td> {{ value.5 }}</td>
+                    <td>
+                        <a href="/delete/{{value.0}}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 
 {% endblock %}
