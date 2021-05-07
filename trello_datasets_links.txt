@@ -1,3 +1,5 @@
+PRESENTATION - https://docs.google.com/presentation/d/1v2e8GCC2fUFS5SpE8lyD9BeIA1_imWM5AtYmK4ovGXQ/edit#slide=id.g855186e73f_0_44
+
 TRELLO - https://trello.com/b/0lQtMiif/ironhack-final-project
 
 DATASETS - https://www.kaggle.com/nicholasjhana/energy-consumption-generation-prices-and-weather
